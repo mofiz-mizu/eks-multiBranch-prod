@@ -6,9 +6,9 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = "kastrov/multibranch-flask-app"
-        GIT_USER   = "kastrokiran"
-        GIT_EMAIL  = "learnwithkastro@gmail.com"
+        IMAGE_NAME = "haquemofiz/multibranch-flask-app"
+        GIT_USER   = "mofiz-mizu"
+        GIT_EMAIL  = "haquemizu@gmail.com"
     }
 
     stages {
@@ -62,7 +62,7 @@ pipeline {
 
                         git add k8s/deployment.yml
                         git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
-                        git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/KastroVKiran/Multi-Branch-Prod.git main
+                        git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/mofiz-mizu/eks-multiBranch-prod.git main
                         """
                     }
                 }
