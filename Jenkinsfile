@@ -63,9 +63,9 @@ pipeline {
         //                 git checkout main
         //                 git reset --hard origin/main
 
-        //                 sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yml
+        //                 sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
 
-        //                 git add k8s/deployment.yml
+        //                 git add k8s/deployment.yaml
         //                 git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
         //                 git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/mofiz-mizu/eks-multiBranch-prod.git main
         //                 """
@@ -92,15 +92,15 @@ pipeline {
                             git reset --hard origin/main
 
                             # Verify file exists before running sed
-                            if [ -f "k8s/deployment.yml" ]; then
-                                sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s/deployment.yml
+                            if [ -f "k8s/deployment.yaml" ]; then
+                                sed -i "s|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|" k8s/deployment.yaml
                             else
-                                echo "ERROR: k8s/deployment.yml not found!"
+                                echo "ERROR: k8s/deployment.yaml not found!"
                                 ls -R
                                 exit 1
                             fi
 
-                            git add k8s/deployment.yml
+                            git add k8s/deployment.yaml
                             git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
                             
                             # Use single quotes for the sh block to keep GIT_TOKEN secure
