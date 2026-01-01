@@ -49,6 +49,11 @@ pipeline {
                         usernameVariable: 'GIT_USERNAME',
                         passwordVariable: 'GIT_TOKEN'
                     )]) {
+                        sh '''
+                          echo "Current Directory: $(pwd)"
+                          echo "Listing all files recursively:"
+                          ls -R
+                        '''                        
                         sh """
                         set -e
                         git config user.name "$GIT_USER"
