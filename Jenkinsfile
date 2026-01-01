@@ -104,7 +104,8 @@ pipeline {
                             git diff --cached --quiet || git commit -m "Updated image to ${IMAGE_TAG}"
                             
                             # Use single quotes for the sh block to keep GIT_TOKEN secure
-                            git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com main
+                            # git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com main
+                            git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/mofiz-mizu/eks-multiBranch-prod.git main
                         '''
                     }
                 }
